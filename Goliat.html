@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goliat</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f8f8f8;
+text-align:center;
+padding:20px;
+}
+
+img{
+max-width:300px;
+border-radius:20px;
+}
+
+button{
+background:#25D366;
+color:white;
+border:none;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🐶 Goliat</h1>
+
+<img src="WhatsApp Image 2026-06-17 at 8.17.47 AM.jpg">
+
+<p>
+Estoy perdido.
+<br>
+Por favor ayuda a mi familia a encontrarme.
+</p>
+
+<p>
+📞 55 4144 7568
+</p>
+
+<button onclick="enviarUbicacion()">
+Compartir ubicación por WhatsApp
+</button>
+
+</div>
+
+<script>
+
+function enviarUbicacion(){
+
+navigator.geolocation.getCurrentPosition(function(pos){
+
+let lat=pos.coords.latitude;
+let lon=pos.coords.longitude;
+
+let mapa=
+"https://maps.google.com/?q="+lat+","+lon;
+
+let mensaje=
+"Hola, encontré a Goliat. Mi ubicación es: "+mapa;
+
+window.location.href=
+"https://wa.me/525541447568?text="+encodeURIComponent(mensaje);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
